@@ -1,0 +1,194 @@
+Comandos de git bash
+
+cd (change directory)
+
+cd / ir a la raiz.
+
+ls (list)
+
+ls -al (mostrar también archivos ocultos)
+
+ls -l (lusta todos los archivos)
+
+ls -a (muestra los archivos en bloque)
+
+clear 
+
+crlt+ L (clear)
+
+cd .. (regresar a la carpeta anterior)
+
+windows no distingue enre mayusculas y minúsculas. Mac y linux sí hacen esta distinción.
+
+con tab, se autocompleta
+
+cd, le damos donde queramos que esten nuestros archivos cuando estámos ahi nos aparece ~
+
+pwd es para que nos muestre la ruta donde estamos parados.
+
+touch documento.txt (crea un docuemnto vacio de texto plano)
+
+mkdir Nombre (crea una carpeta en la ruta especificada)
+
+cat (mostrar en consola el contenido de un archivo)
+
+history (muestra el historial de comandos de la terminal)
+
+para acceder a un comando anterior, se usa !# donde # es el número del comando.
+
+rm documento (remove file)
+
+comando --help (para cualquier comando)
+
+
+git init (crear un nuevo control de versiones para la carpeta en cuestión)
+
+si desde la terminal de git bash, escribimos code, nos abrirá una ventana de VS Code
+
+git add filename.ext (añade el archivo a staged, para ser comiteado)
+
+git rm --cached filename.ext  (saca el archivo del estado staged, es como deshacer el add)
+
+Configuración del GIT
+
+git config --list (muestra las configuraciónes hasta el momento en la maquina)
+
+un solo guion, se usan iniciales.
+
+-- es usar palabras completas
+
+git config --global user.name "Julian Salva"
+
+git config --global user.email "jsalvar124@gmail.com"
+
+code filename.ext (abre el archivo para edición)
+
+
+
+git show filename.ext (muestra el historial de cambios) para salir ESC, luego shift+z+z
+
+git diff TagVersionVieja TagVersionNueva (muestra las diferencias entre dos commits culaquiera)
+
+git log filename.ext (muestra el historial de commits de un archivo.)
+
+q para salir del LOG
+
+PARA VOLVER A UNA VERSION ANTERIOR
+hay dos opciones, la soft y la hard, la que más se usa es la hard, pero es peligrosa, porque elminia toda la info después de cierto punto
+
+git reset TAG_DEL_COMMIT --hard
+
+git reset TAG_DEL_COMMIT --soft
+
+git checkout TAG_DEL_COMMIT filename.txt (se trae el archivo especifico, del tag del comit mencionado)
+
+git checkout master filename.txt (actualiza el archivo a su versión final nuevamente, la útlima commiteada en el master.)
+
+entonces, puedo traerme una versión anterrior, con checkout TAG_DEL_COMMIT archivo.ext, luego editarlo, y volvero a commitar a la rama master.
+
+Con git reset volvemos al pasado sin la posibilidad de volver al futuro. Borramos la historia y la debemos sobreescribir. No hay vuelta atrás.
+
+Este comando es muy peligroso y debemos emplearlo solo en caso de emergencia. Recuerda que debemos usar alguna de estas dos opciones
+
+git reset --soft Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.
+git reset --hard Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging se borra del historial.
+
+
+git reset HEAD  (sacar archivos del área de staging)
+
+
+directorio de trabajo: carpeta local de tu pc
+
+preparación o staging: (se envia con git add un archivo a este limbo, en la memoria del pc)
+
+Repositorio local git commit: ( se envía al .git, que almacena los cambios y guarda la version definitiva)
+
+Repositorio remoto: no se encuentra en el ordenador, (GitHub) alli se trabaja con el equipo. 
+
+git pull = git fetch + git merge
+
+el HEAD es el lugar donde estoy trabajando, cuando dice HEAD -> master es que estoy en la rama master.
+
+Ramas
+
+para crear una rama,  
+
+git branch nombreRama  (HEAD -> master, header) una vez creada la rama aparece con git show.
+
+para cambiarse a dicha rama
+
+git checkout nombreRama
+
+git commit -am es una forma corta de hacer add y añadir mensaje al mismo tiempo.
+
+para ingresar al editor de texto git commit -a
+
+una vez adentro ESC i para modificar, y shift + z + z para enviar.
+
+git checkout master me devuelve a la rama principal y actualiza todos los archivos al estado de ese commit, si hice cambios en otra rama, no se ven en este checkout.
+
+git merge nombreRama (ANTES DE HACER MERGE, ASEGURARSE DE ESTAR PARADO EN LA RAMA MASTER)
+
+se añade comentario y se comitea, porque un merge es basicamente un comit.
+
+si no hay conflictos, pues se fusionan los archivos.
+
+git remote add origin URLGITHUB
+
+git remote (muestra si hay un origin)
+
+git remote -v (muestra el link asociado)
+
+echo "# practice" >>README.md
+
+git branch -M main (mover todo a main, porque master es racista)
+
+git push -u origin main
+
+commit c2ea40b41ea995bf4e24734bd021341da767f93f (HEAD -> main, origin/main) actualizado con el main, y con el origin/main, repositorio remoto.
+
+ssh
+
+git remote set-url origin URLGITHUB
+
+git log --all --graph --decorate --oneline
+
+alias arbol-historia="git log --all --graph --decorate --oneline" (crear un alias)
+
+git tag -a v0.1 -m "Mensaje descriptivo" (crear un tag)
+
+git show-ref --tags (mostrar los tags hasta el momento)
+
+git push origin --tags (subir el tag a github)
+
+git tag -d nombredeltag (eliminar un tag)
+
+git clone URLGITHUB
+
+preview del README ctrl + k v
+
+
+pages.github.com
+
+git reflog se muestra tooodo el historial
+
+git commit --amend (para remendar un commit que quedó incompleto, o algo.)
+
+git grep word (muestra todas las lineas donde aparece la palabra word)
+
+git grep -n word (trae todos las veces y lineas donde se uso la palabra)
+
+git grep -c color (cuenta cuantas veces aparece la palabra color)
+
+git grep -c "<p>" (cuantas veces aparece la etiqueta p )
+
+git log -S "header"(cuantas veces aparece pero en el historial de git)
+
+git shortlog -sn (cuenta el numero de commits de cada colaborador)
+
+git blame -c (muestra quien edito qué, de forma ordenada con el -c)
+
+
+
+
+
